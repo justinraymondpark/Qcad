@@ -22,7 +22,7 @@
 	<string></string>
 
 	<key>LSMinimumSystemVersion</key>
-	<string></string>
+	<string>11.0</string>
 
 	<key>NSHumanReadableCopyright</key>
 	<string></string>

@@ -108,26 +108,14 @@ macx {
 # settings for all macOS builds:
 macx {
     QMAKE_CXXFLAGS_X86 += -Werror=return-type
-    #macx-clang* {
-        #QMAKE_CXXFLAGS += -mmacosx-version-min=10.7
-        #exists(/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX) {
-        #    # nothing
-        #    #message("SDK")
-        #    #QMAKE_MAC_SDK = macosx
-        #}
-        #else:exists(/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk) {
-        #    #QMAKE_MAC_SDK = macosx10.12
-        #}
-        #else:exists(/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk) {
-        #    #QMAKE_MAC_SDK = macosx10.11
-        #}
-        #else:exists(/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk) {
-        #    #QMAKE_MAC_SDK = macosx10.9
-        #}
-        #exists(/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1) {
-        #    INCLUDEPATH += /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1
-        #}
-    #}
+
+    # Target macOS 11.0 (Big Sur) as minimum deployment target
+    QMAKE_MACOSX_DEPLOYMENT_TARGET = 11.0
+    QMAKE_CXXFLAGS += -mmacosx-version-min=11.0
+    QMAKE_LFLAGS += -mmacosx-version-min=11.0
+    QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=11.0
+
+    QMAKE_MAC_SDK = macosx
 
     greaterThan(QT_MAJOR_VERSION, 4) {
         QMAKE_LFLAGS += -F/System/Library/Frameworks
